@@ -15,17 +15,23 @@ Pertama, saya menjalankan kode git --global user.name/user.email agar git dapat 
 Berikut adalah penjelasan untuk tugas pada slide 75
 1. Repository sudah saya kumpulkan dan sudah menambahkan github mentor
 2. Saya menggunakan perintah
+```
 git checkout -b development master
+```
 > Berfungsi untuk langsung bersiap pada branch yang baru saja ditambahkan
+```
 git branch featureA
 git branch featureB
+```
 > Menambahkan branch
 
 3. Semua sudah diimpelementasikan pada tugas praktikum
 
 4. Conflict terjadi karena ada 2 perubahan yang berbeda pada line yang sama. Saya menambahkan baris ke 4 dan ke 5 pada featureA lalu dipush. Kemudian, menambahkan isi yang berbeda pada baris ke 4 dan ke 5 pada featureB kemudian dipush. Selanjutnya, saya menjalankan perintah
-<sub>git checkout featureB</sub>
-<sub>git merge --no-ff featureA</sub>
-Memilih proses merge, kemudian selesai.
+```
+git checkout featureB
+git merge --no-ff featureA
+```
+Memilih proses merge yang diinginkan, kemudian selesai.
 
 5. Kode pada nomer 4 merupakan perintah merge untuk no fast forward.
