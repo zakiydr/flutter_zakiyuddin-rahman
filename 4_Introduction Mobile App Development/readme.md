@@ -1,6 +1,6 @@
 # (Section 4) Introduction Mobile App Development
 ## Data diri
-Nama        : Zakiyuddin Rahman
+Nama        : Zakiyuddin Rahman </br>
 Nomor urut  : 1_024FLC_0
 
 ## Summary
