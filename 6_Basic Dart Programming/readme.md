@@ -7,10 +7,10 @@
 - Bahasa pemrogramman yang bisa merancang aplikasi dapat berjalan dengan cepat
 - Aplikasi yang dibuat berupa frontend
 - Memiliki kelebihan 
-  ***1. Type Safe***
-  ***2. Null Safety***
-  ***3. Rich standard library***
-  ***4. Multiplatform***
+  ***1. Type Safe*** </br>
+  ***2. Null Safety*** </br>
+  ***3. Rich standard library*** </br>
+  ***4. Multiplatform*** </br>
 
 ### Tipe Data
 
