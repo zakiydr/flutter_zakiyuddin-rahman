@@ -6,11 +6,11 @@
 
 - Bahasa pemrogramman yang bisa merancang aplikasi dapat berjalan dengan cepat
 - Aplikasi yang dibuat berupa frontend
-- Memiliki kelebihan 
+- Memiliki kelebihan </br>
   ***1. Type Safe*** </br>
   ***2. Null Safety*** </br>
   ***3. Rich standard library*** </br>
-  ***4. Multiplatform*** </br>
+  ***4. Multiplatform***
 
 ### Tipe Data
 
