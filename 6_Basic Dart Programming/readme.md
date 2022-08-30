@@ -1,4 +1,4 @@
-# (5) Introduction to Algorithm and Dart Programming
+# (6) Basic Dart Programming
 
 ## Summary
 
@@ -6,10 +6,10 @@
 
 - Bahasa pemrogramman yang bisa merancang aplikasi dapat berjalan dengan cepat
 - Aplikasi yang dibuat berupa frontend
-- Memiliki kelebihan 
-  ***1. Type Safe***
-  ***2. Null Safety***
-  ***3. Rich standard library***
+- Memiliki kelebihan </br>
+  ***1. Type Safe*** </br>
+  ***2. Null Safety*** </br>
+  ***3. Rich standard library*** </br>
   ***4. Multiplatform***
 
 ### Tipe Data
