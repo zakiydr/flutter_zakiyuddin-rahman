@@ -99,6 +99,9 @@ membandingkan kondisi
 void main(){
     print(10 == 5 && 5 == 10);
     print(10 == 5 || 5 == 10);
-    print(10 == 5 ! 5 == 10);
+    var a = 20;
+    bool b = !(a > 15);
+    print(b);
+
 }
 ```
