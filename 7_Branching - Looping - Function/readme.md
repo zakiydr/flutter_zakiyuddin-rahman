@@ -101,7 +101,7 @@ void main() {
         }
         print(i);
     }
-} 
+}   
 ```
 > Jika i adalah 5, perulangan dilewati
 ### Fungsi
