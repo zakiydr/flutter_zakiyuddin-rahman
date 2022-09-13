@@ -3,12 +3,6 @@ class BangunRuang {
   int lebar = 0;
   int tinggi = 0;
 
-  BangunRuang()
-  {
-    panjang = 0;
-    lebar = 0;
-    tinggi = 0;
-  }
   int volume = 0;
   void hitungVolume() {
     volume = panjang * lebar * tinggi;
