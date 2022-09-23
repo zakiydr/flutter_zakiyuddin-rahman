@@ -40,7 +40,8 @@ assets:
 - Penggunaan font dengan style tertentu akan menjadi keunikan pada aplikasi
 - Penentuan font yang mau dipakai biasa nya oleh Ul designer
 - Penerapan font menggunakan custom font atau dari package
-- 
+  
+
 #### Custom Font
 Cara menggunakan custom font:</br>
 Step 1: Cari dan download font (Ex. https:/fonts.google.com/)</br>
