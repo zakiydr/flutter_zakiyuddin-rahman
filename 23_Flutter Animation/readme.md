@@ -32,6 +32,12 @@
 #### FadeTransition
 - Halaman muncul dengan efek redup menuju ke tampak jelas secara penuh
 
+<img src='https://lh5.googleusercontent.com/RsBqL-h1UneIKxU_XzcJNYY6ejiFKjKQnlh8AoPf7xW-dSA60WZp0gslH2d8X9R-KIFY1PNe5z49HG66A59zEc0bx8N4VhbSSdPlcIoW0NY7zMYK_wKqW6kTtm9tOMDtMRQOHQYHp8OKctg6YD5YNp-jy8nHSsW_pSE48JqrV5zh-5pUQYxId9RKSSCQ'>
+<img src='https://lh5.googleusercontent.com/SI2ZncvZYXgekC7dF-9oAcLZkhUbG-iutG9GdbRbbeGax6t8b52HTJ0YI1XDtWkkd63TRBvCUlDXXHe8FzuGzoQvdVmsJZy6W787WGBWrFoIhSRho6bxcv-_ySNCMxZr7i12Tp8hnDu6mvoS8-sIc2IGpNqPJGZz2OZ-PaOYeZS7YLMmBwYnZv1NXe_O'>
+
 
 #### ScaleTransition
 - Halaman muncul dengan efek berubah ukuran dari tidak penuh menuju full screen
+
+<img src='https://lh4.googleusercontent.com/PdoSIvl-wrZWSLhRz9p3-HCsKd02kA8gR4I3pAWJqiMe0Z9Vye1L2D9HDs3Vw0eh-AOK4xDuPxx-6AcM-X_OHcQDpaPTuI-OfXmfiT6MXBPGdWOEhTi71D9jBU0Dt9XhB0PRDZ6tk2wqhxspmMwNiY3DQj96cfujW7HZx1S9s_QR21A9SzqmrqYdFldi'>
+<img src='https://lh4.googleusercontent.com/7eP6GuQQvkrdv7qNwUCry7Wx5BxuN0gM4OPx1dY1M9HN_NP2QWfL2dSIQ-CaXnTl_VHFf1EoNrMoc47UGm8NzAFyZSBjItjRhgY0AmavRoBTtz3YdHcqhIu2Z5bFbiMiYVdpBcT-5ql5Ll4LdY86Bl4_Jm-Z2PiSOlKnXlJJFc1dRdh-TSe80msKBmfP'>
