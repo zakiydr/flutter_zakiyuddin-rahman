@@ -19,6 +19,25 @@ class JadwalSholat {
   }
 }
 
+class Lokasi {
+  String? id;
+  String? lokasi;
+
+  Lokasi({this.id, this.lokasi});
+
+  Lokasi.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    lokasi = json['lokasi'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = this.id;
+    data['lokasi'] = this.lokasi;
+    return data;
+  }
+}
+
 class Data {
   String? id;
   String? lokasi;
@@ -39,7 +58,7 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['lokasi'] = this.lokasi;
     data['daerah'] = this.daerah;
@@ -69,7 +88,7 @@ class Koordinat {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['lat'] = this.lat;
     data['lon'] = this.lon;
     data['lintang'] = this.lintang;
@@ -127,6 +146,73 @@ class Jadwal {
     data['maghrib'] = this.maghrib;
     data['isya'] = this.isya;
     data['date'] = this.date;
+    return data;
+  }  
+}
+
+class Tafsir {
+  bool? status;
+  List<Data>? data;
+
+  Tafsir({this.status, this.data});
+
+  Tafsir.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(Data.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['status'] = this.status;
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class TafsirData {
+  int? tafsirId;
+  String? ayaName;
+  int? suraId;
+  int? ayaNumber;
+  String? text;
+  String? mufasir;
+  String? html;
+
+  TafsirData(
+      {this.tafsirId,
+      this.ayaName,
+      this.suraId,
+      this.ayaNumber,
+      this.text,
+      this.mufasir,
+      this.html});
+
+  TafsirData.fromJson(Map<String, dynamic> json) {
+    tafsirId = json['tafsir_id'];
+    ayaName = json['aya_name'];
+    suraId = json['sura_id'];
+    ayaNumber = json['aya_number'];
+    text = json['text'];
+    mufasir = json['mufasir'];
+    html = json['html'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['tafsir_id'] = this.tafsirId;
+    data['aya_name'] = this.ayaName;
+    data['sura_id'] = this.suraId;
+    data['aya_number'] = this.ayaNumber;
+    data['text'] = this.text;
+    data['mufasir'] = this.mufasir;
+    data['html'] = this.html;
     return data;
   }
 }
