@@ -22,7 +22,7 @@ class _SholatListState extends State<SholatList> {
             height: 70,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade600,
+              color: Colors.teal.shade400,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Padding(
@@ -48,7 +48,7 @@ class _SholatListState extends State<SholatList> {
                         ),
                       ),
                       Text(
-                        '${jadwalProvider.jadwalSholat?.jadwal?.subuh}',
+                        '${jadwalProvider.jadwalSholat?.data?.jadwal?.subuh}',
                         style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 20,
@@ -67,7 +67,7 @@ class _SholatListState extends State<SholatList> {
             height: 70,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade600,
+              color: Colors.teal.shade500,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Padding(
@@ -93,7 +93,7 @@ class _SholatListState extends State<SholatList> {
                         ),
                       ),
                       Text(
-                        '${jadwalProvider.jadwalSholat?.jadwal?.dzuhur}',
+                        '${jadwalProvider.jadwalSholat?.data?.jadwal?.dzuhur}',
                         style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 20,
@@ -138,7 +138,7 @@ class _SholatListState extends State<SholatList> {
                         ),
                       ),
                       Text(
-                        '${jadwalProvider.jadwalSholat?.jadwal?.ashar}',
+                        '${jadwalProvider.jadwalSholat?.data?.jadwal?.ashar}',
                         style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 20,
@@ -157,7 +157,7 @@ class _SholatListState extends State<SholatList> {
             height: 70,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade600,
+              color: Colors.teal.shade700,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Padding(
@@ -183,7 +183,7 @@ class _SholatListState extends State<SholatList> {
                         ),
                       ),
                       Text(
-                        '${jadwalProvider.jadwalSholat?.jadwal?.maghrib}',
+                        '${jadwalProvider.jadwalSholat?.data?.jadwal?.maghrib}',
                         style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 20,
@@ -228,7 +228,7 @@ class _SholatListState extends State<SholatList> {
                         ),
                       ),
                       Text(
-                        '${jadwalProvider.jadwalSholat?.jadwal?.isya}',
+                        '${jadwalProvider.jadwalSholat?.data?.jadwal?.isya}',
                         style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 20,

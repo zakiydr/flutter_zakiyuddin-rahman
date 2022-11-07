@@ -1,6 +1,6 @@
 class JadwalSholat {
   bool? status;
-  Data? data;
+  Data? data; 
 
   JadwalSholat({this.status, this.data});
 

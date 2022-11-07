@@ -27,11 +27,11 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => Home(),
           '/location': (context) => LocationPage(),
-          '/tafsir': (context) => TafsirPage()
+          '/tafsir': (context) => TafsirPage(),
         },
         theme: ThemeData(
           primarySwatch: Colors.teal,
-          scrollbarTheme: ScrollbarThemeData(
+          scrollbarTheme: const ScrollbarThemeData(
               minThumbLength: 50,
               mainAxisMargin: 2,
               thumbVisibility: MaterialStatePropertyAll(true),
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               crossAxisMargin: 5,
               thickness: MaterialStatePropertyAll(10),
               radius: Radius.circular(10)),
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
             titleMedium: TextStyle(color: Colors.white),
             displayMedium: TextStyle(color: Colors.white),
           ),

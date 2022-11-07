@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 import 'package:mini_project/model/model.dart';
 
 class SholatAPI {
@@ -12,18 +13,19 @@ class SholatAPI {
     dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
   }
 
-  Future<Data> fetchJadwal(String id, String tanggal) async {
+  Future<JadwalSholat> fetchJadwal(String id, String tanggal) async {
     try {
       final Response response = await dio.get(
         'sholat/jadwal/$id/$tanggal',
       );
 
-      Data dataJadwal = Data.fromJson(response.data);
+      JadwalSholat dataJadwal = JadwalSholat.fromJson(response.data);
       // List<Data> dataSholat =
 
       //     (response.data['data'] as List).map((e) => Data.fromJson(e)).toList();
 
-      print('Check detail ${dataJadwal.lokasi}');
+      print(response.data);
+      print(dataJadwal.data?.lokasi.toString());
 
       return dataJadwal;
     } catch (e) {
@@ -61,15 +63,36 @@ class SholatAPI {
     }
   }
 
-  Future<List<TafsirData>> fetchTafsir() async {
+  Future<List<TafsirData>> fetchTafsir(int id) async {
     try {
       final Response response = await dio.get(
-        'tafsir/quran/kemenag/id/10',
+        'tafsir/quran/kemenag/id/$id',
       );
 
-      List<dynamic> data = response.data;
-      List<TafsirData> tafsir =
-          data.map((e) => TafsirData.fromJson(e)).toList();
+      // List<dynamic> data = response.data;
+      List<TafsirData> tafsir = (response.data['data'] as List)
+          .map(
+            (e) => TafsirData.fromJson(e),
+          )
+          .toList();
+
+      return tafsir;
+    } catch (e) {
+      rethrow;
+    }
+  }
+  Future<List<TafsirData>> fetchTafsir2(int id) async {
+    try {
+      final Response response = await dio.get(
+        'tafsir/quran/kemenag/id/$id',
+      );
+
+      // List<dynamic> data = response.data;
+      List<TafsirData> tafsir = (response.data['data'] as List)
+          .map(
+            (e) => TafsirData.fromJson(e),
+          )
+          .toList();
 
       return tafsir;
     } catch (e) {

@@ -6,30 +6,37 @@ class GetSholat with ChangeNotifier {
   List<Lokasi> _kota = [];
   List<Lokasi> get kota => _kota;
 
-  Data? _jadwalSholat;
-  Data? get jadwalSholat => _jadwalSholat;
+  JadwalSholat? _jadwalSholat;
+  JadwalSholat? get jadwalSholat => _jadwalSholat;
 
-  List<TafsirData> _tafsirData = [];
-  List<TafsirData> get tafsirData => _tafsirData;
+  List<TafsirData>? _tafsirData;
+  List<TafsirData>? get tafsirData => _tafsirData;
 
-  // List<Data> _jadwal = [];
-  // List<Data> get jadwal => _jadwal;
+  List<TafsirData>? _tafsirData2;
+  List<TafsirData>? get tafsirData2 => _tafsirData2;
 
   getJadwal(String id, String tanggal) async {
     final response = await SholatAPI().fetchJadwal(id, tanggal);
     _jadwalSholat = response;
+    debugPrint('Testing ${_jadwalSholat.toString()}');
     notifyListeners();
   }
 
   getKota() async {
     final response = await SholatAPI().fetchKota();
     _kota = response;
+    final bool isLokasi = false;
     notifyListeners();
   }
 
-  getTafsir() async {
-    final response = await SholatAPI().fetchTafsir();
+  getTafsir(int id) async {
+    final response = await SholatAPI().fetchTafsir(id);
     _tafsirData = response;
+    notifyListeners();
+  }
+  getTafsir2(int id) async {
+    final response = await SholatAPI().fetchTafsir2(id);
+    _tafsirData2 = response;
     notifyListeners();
   }
 

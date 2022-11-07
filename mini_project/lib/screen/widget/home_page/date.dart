@@ -14,12 +14,7 @@ class HomeDate extends StatefulWidget {
 }
 
 class _HomeDateState extends State<HomeDate> {
-  
   TextEditingController dateController = TextEditingController();
-  String? currentDayName;
-  int? currentDay;
-  int? currentMonth;
-  int? currentYear;
 
   @override
   Widget build(BuildContext context) {
@@ -34,27 +29,8 @@ class _HomeDateState extends State<HomeDate> {
             size: 25,
           ),
         ),
-        InkWell(
-          onTap: () async {
-            final selectDate = await showDatePicker(
-                context: context,
-                initialDate: currentDate,
-                firstDate: DateTime(2000),
-                lastDate: DateTime(currentDate.year + 5),
-              );
-              if (selectDate != null) {
-                String dateFormat = DateFormat('dd/MM/yyyy').format(selectDate);
-
-                setState(() {
-                  dateController.text = dateFormat;
-                });
-              } else {
-                print("Date is not selected");
-              }
-          },
-          child: Text('${modelView.jadwalSholat?.jadwal?.tanggal}',
-              style: GoogleFonts.lato(fontSize: 16)),
-        )
+        Text('${modelView.jadwalSholat?.data?.jadwal?.tanggal}',
+            style: GoogleFonts.lato(fontSize: 16))
       ],
     );
   }
