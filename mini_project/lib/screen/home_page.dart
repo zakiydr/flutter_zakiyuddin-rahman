@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:mini_project/model/view_model.dart';
+import 'package:mini_project/screen/tafsir_page.dart';
 import 'package:mini_project/screen/widget/home_page/date.dart';
 import 'package:mini_project/screen/widget/home_page/list_sholat.dart';
 import 'package:mini_project/screen/location_page.dart';
@@ -22,13 +25,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final imageBg =
-      'https://static.vecteezy.com/system/resources/thumbnails/006/255/895/small_2x/islamic-background-with-desert-and-mosque-free-vector.jpg';
+      'https://static.vecteezy.com/system/resources/previews/002/294/267/non_2x/flat-background-mosque-ramadan-kareem-sunset-landscape-cartoon-illustration-vector.jpg';
   late String id;
   late String tanggal;
-  TimeOfDay _timeOfDay = TimeOfDay.now();
   SholatAPI services = SholatAPI();
 
   DateTime currentDate = DateTime.now();
+
+  int _selectedIndex = 0;
   // String dateFormat = DateFormat('yyyy/MM/dd').format(currentDate);
 
   @override
@@ -42,6 +46,8 @@ class _HomeState extends State<Home> {
     Provider.of<GetSholat>(context, listen: false)
         .getJadwal('1301', dateFormat);
     Provider.of<GetSholat>(context, listen: false).getTafsir(1);
+    Provider.of<GetSholat>(context, listen: false).getListKota();
+
     Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
@@ -54,155 +60,65 @@ class _HomeState extends State<Home> {
     );
   }
 
+  void botNavbarTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final modelView = Provider.of<GetSholat>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Yusholat'),
+        title: Text('Salam'),
       ),
       body: modelView.jadwalSholat != null
           ? ListView(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LocationPage(),
-                        ),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Row(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Stack(
+                    children: [
+                      Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 4.0),
-                            child: Icon(
-                              Icons.location_pin,
-                              size: 25,
+                          Container(
+                            width: double.infinity,
+                            height: 400,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.vertical(
+                                  bottom: Radius.circular(5)),
+                              image: DecorationImage(
+                                image: NetworkImage(imageBg),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '${modelView.jadwalSholat?.data?.lokasi}',
-                            style: GoogleFonts.lato(fontSize: 16),
                           ),
                         ],
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              DateFormat.EEEE('id_ID').format(currentDate),
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            Text(DateFormat.Hm().format(currentDate),
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Stack(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.vertical(
-                                bottom: Radius.circular(5)),
-                            image: DecorationImage(
-                              image: NetworkImage(imageBg),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 80,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 12),
-                            decoration: BoxDecoration(
-                              gradient: RadialGradient(
-                                  colors: [
-                                    Colors.teal.shade400,
-                                    Colors.teal.shade700
-                                  ],
-                                  center: Alignment.topLeft,
-                                  radius: .8,
-                                  tileMode: TileMode.mirror),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                              image: DecorationImage(
-                                fit: BoxFit.fitWidth,
-                                opacity: .2,
-                                image: AssetImage('assets/images/home-bg.png'),
-                              ),
-                            ),
-                            width: double.infinity,
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(24),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Waktu saat ini',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium,
-                                          ),
-                                          Text(
-                                              DateFormat.Hm()
-                                                  .format(currentDate),
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .displayMedium),
-                                          SizedBox(height: 10),
-                                          Text(
-                                            '',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium,
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            '${modelView.jadwalSholat?.data?.jadwal?.tanggal}',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SholatList(),
-                          TafsirPart(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                HomeDate(),
+                SholatList(),
+                TafsirPart(),
               ],
             )
           : Center(

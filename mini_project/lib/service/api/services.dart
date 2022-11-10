@@ -24,9 +24,6 @@ class SholatAPI {
 
       //     (response.data['data'] as List).map((e) => Data.fromJson(e)).toList();
 
-      print(response.data);
-      print(dataJadwal.data?.lokasi.toString());
-
       return dataJadwal;
     } catch (e) {
       rethrow;
@@ -56,8 +53,29 @@ class SholatAPI {
 
       List<dynamic> dataKota = response.data;
       List<Lokasi> semuaKota = dataKota.map((e) => Lokasi.fromJson(e)).toList();
+      List<dynamic> listKota;
 
       return semuaKota;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<String>> fetchListKota() async {
+    try {
+      final Response response = await dio.get(
+        'sholat/kota/semua',
+      );
+
+      List<dynamic> dataKota = response.data;
+      List<Lokasi> semuaKota = dataKota.map((e) => Lokasi.fromJson(e)).toList();
+      List<String> listKota = [];
+      for (var i = 0; i < semuaKota.length; i++) {
+        listKota.add(semuaKota[i].lokasi ?? '');
+      }
+      debugPrint('Testing $listKota');
+
+      return listKota;
     } catch (e) {
       rethrow;
     }
@@ -81,22 +99,23 @@ class SholatAPI {
       rethrow;
     }
   }
-  Future<List<TafsirData>> fetchTafsir2(int id) async {
-    try {
-      final Response response = await dio.get(
-        'tafsir/quran/kemenag/id/$id',
-      );
 
-      // List<dynamic> data = response.data;
-      List<TafsirData> tafsir = (response.data['data'] as List)
-          .map(
-            (e) => TafsirData.fromJson(e),
-          )
-          .toList();
+  // Future<List<TafsirData>> fetchTafsir2(int id) async {
+  //   try {
+  //     final Response response = await dio.get(
+  //       'tafsir/quran/kemenag/id/$id',
+  //     );
 
-      return tafsir;
-    } catch (e) {
-      rethrow;
-    }
-  }
+  //     // List<dynamic> data = response.data;
+  //     List<TafsirData> tafsir = (response.data['data'] as List)
+  //         .map(
+  //           (e) => TafsirData.fromJson(e),
+  //         )
+  //         .toList();
+
+  //     return tafsir;
+  //   } catch (e) {
+  //     rethrow;
+  //   }
+  // }
 }

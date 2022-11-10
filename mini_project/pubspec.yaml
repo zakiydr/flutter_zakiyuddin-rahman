@@ -43,10 +43,11 @@ dependencies:
   provider: ^6.0.4
   http: ^0.13.5
   intl: ^0.17.0
-
-dev_dependencies:
+  html: ^0.15.1
   flutter_test:
     sdk: flutter
+
+dev_dependencies:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -72,6 +73,13 @@ flutter:
     - assets/images/tafsir-bg2.jpg
     - assets/images/tafsir-bg3.webp
     - assets/images/home-bg.png
+    - assets/images/tafsir-bgtes1.webp
+    - assets/images/tafsir-bgtes3.webp
+    - assets/images/tafsir-bgtes2.png
+    - assets/images/tafsir-bgtes4.jpg
+    - assets/images/tafsir-bgtes5.jpg
+    - assets/images/tafsir-bgtes6.png
+    - assets/images/tafsir-bgtes7.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

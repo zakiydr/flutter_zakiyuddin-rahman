@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:mini_project/model/view_model.dart';
-import 'package:mini_project/screen/widget/home_page/tafsir.dart';
 import 'package:mini_project/screen/home_page.dart';
 import 'package:mini_project/screen/location_page.dart';
 import 'package:mini_project/screen/tafsir_page.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id_ID', null)
+      .then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

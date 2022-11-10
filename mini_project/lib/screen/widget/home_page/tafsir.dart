@@ -17,117 +17,60 @@ class TafsirPart extends StatefulWidget {
 }
 
 class _TafsirPartState extends State<TafsirPart> {
+  final tafsirImage =
+      'https://media.istockphoto.com/id/520709232/vector/islamic-book-holy-quran.jpg?s=612x612&w=0&k=20&c=NIzrJrap9TNIbvFpD4P5b7R4N2kLa2PcuJsUwcEmXvg=';
+
   @override
   Widget build(BuildContext context) {
-    Random random = Random();
-    Random random2 = Random();
-    int randomId1 = random.nextInt(6237);
-    int randomId2 = random.nextInt(6237);
-    final modelView = Provider.of<GetSholat>(context);
-    final modelView2 = Provider.of<GetSholat>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Tafsir of the Day',
-              style: GoogleFonts.lato(
-                textStyle: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  modelView.getTafsir(randomId1);
-                  modelView2.getTafsir2(randomId2);
-                });
-              },
-              icon: Icon(Icons.restart_alt_rounded, size: 30),
-            )
-          ],
+        Container(
+          height: 5,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(color: Colors.grey.withOpacity(.2)),
+              BoxShadow(color: Colors.white, spreadRadius: -10, blurRadius: 30)
+            ],
+          ),
         ),
-        Row(
-          children: [
-            Flexible(
-              flex: 1,
-              child: SizedBox(
-                height: 70,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/tafsir');
-                  },
-                  child: Card(
-                    clipBehavior: Clip.antiAlias,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            autofocus: true,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TafsirPage()),
+              );
+            },
+            child: Card(
+              elevation: 0,
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                height: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.amber.shade400,
+                  image: DecorationImage(
+                      opacity: .2,
+                      image: NetworkImage(tafsirImage),
+                      fit: BoxFit.cover),
+                ),
+                child: Center(
+                  child: Text(
+                    'Tafsir of the Day',
+                    style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600),
                     ),
-                    child: Row(
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.green,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 3,
-                          child: Container(
-                            child: Center(
-                              child: Text(
-                                  '${modelView.tafsirData?.first.ayaName}'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    shadowColor: Colors.grey,
                   ),
                 ),
               ),
             ),
-            Flexible(
-              flex: 1,
-              child: SizedBox(
-                height: 70,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/tafsir');
-                  },
-                  child: Card(
-                    clipBehavior: Clip.antiAlias,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.green,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 3,
-                          child: Container(
-                            child: Center(
-                              child: Text(
-                                  '${modelView2.tafsirData?.first.ayaName}'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    shadowColor: Colors.grey,
-                  ),
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       ],
     );

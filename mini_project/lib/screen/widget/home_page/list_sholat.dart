@@ -17,13 +17,21 @@ class _SholatListState extends State<SholatList> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Container(
-            height: 70,
+            height: 60,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade400,
-              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.teal,
+                  Color.fromARGB(255, 74, 216, 147),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                stops: [0.4, 1.0],
+              ),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -62,13 +70,21 @@ class _SholatListState extends State<SholatList> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Container(
-            height: 70,
+            height: 60,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade500,
-              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.teal,
+                  Color.fromARGB(255, 74, 216, 147),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                stops: [0.4, 1.0],
+              ),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -107,13 +123,21 @@ class _SholatListState extends State<SholatList> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Container(
-            height: 70,
+            height: 60,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade600,
-              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.teal,
+                  Color.fromARGB(255, 74, 216, 147),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                stops: [0.4, 1.0],
+              ),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -152,13 +176,21 @@ class _SholatListState extends State<SholatList> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Container(
-            height: 70,
+            height: 60,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade700,
-              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.teal,
+                  Color.fromARGB(255, 74, 216, 147),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                stops: [0.4, 1.0],
+              ),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -197,13 +229,21 @@ class _SholatListState extends State<SholatList> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Container(
-            height: 70,
+            height: 60,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.teal.shade600,
-              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.teal,
+                  Color.fromARGB(255, 74, 216, 147),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                stops: [0.4, 1.0],
+              ),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
